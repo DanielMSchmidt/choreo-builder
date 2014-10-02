@@ -9,9 +9,10 @@
  */
 angular.module('jsChoreoBuilderApp')
   .controller('MainCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+    $scope.availableMoves = [];
+
+    $scope.addMove = function() {
+      $scope.availableMoves.push($scope.newMove);
+      $scope.newMove = "";
+    }
   });
