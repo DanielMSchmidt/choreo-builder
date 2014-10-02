@@ -95,3 +95,15 @@ body {
   margin: 0 auto;
   width: 90%;
 }
+
+.silent-list {
+  list-style-type: none;
+  padding: 0;
+  li {
+    margin-bottom: 10px;
+  }
+
+  a {
+    line-height: 28px;
+  }
+}

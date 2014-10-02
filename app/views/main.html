@@ -18,11 +18,11 @@
         </div>
       </form>
 
-      <ul>
-        <li ng-repeat="move in availableMoves">
-          <a class="glyphicon glyphicon-plus" ng-click="addChosenMove(move)"></a>
-          <span class="btn btn-default">{{move}}</span>
-          <a class="glyphicon glyphicon-remove" ng-click="removeMove(move)"></a>
+      <ul class="silent-list">
+        <li ng-repeat="move in availableMoves" class="row">
+          <a class="col-xs-2 glyphicon glyphicon-plus" ng-click="addChosenMove(move)"></a>
+          <span class="col-xs-8 btn btn-default">{{move}}</span>
+          <a class="col-xs-2 glyphicon glyphicon-remove text-right" ng-click="removeMove(move)"></a>
         </li>
       </ul>
     </div>
