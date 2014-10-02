@@ -19,13 +19,18 @@ angular.module('jsChoreoBuilderApp')
     $scope.chosenMoves = (localStorageService.get('chosenMoves') || []);
     localStorageService.bind($scope, 'chosenMoves', $scope.chosenMoves);
 
+    $scope.currentIndex = $scope.chosenMoves.length + 1;
+
     $scope.addMove = function() {
-      $scope.availableMoves.push($scope.newMove);
+      $scope.availableMoves.push({name: $scope.newMove});
       $scope.newMove = '';
     };
 
     $scope.addChosenMove = function(newMove) {
-      $scope.chosenMoves.push(newMove);
+      var move = angular.copy(newMove);
+      move.index = $scope.currentIndex;
+      $scope.chosenMoves.push(move);
+      $scope.currentIndex++;
     };
 
     $scope.removeMove = function(move) {

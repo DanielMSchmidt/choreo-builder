@@ -5,7 +5,7 @@
       <h2>Choreographie</h2>
       <ul class="js-sortable">
         <li ng-repeat="move in chosenMoves">
-          {{move}} <a class="glyphicon glyphicon-remove" ng-click="removeChosenMove(move)"></a>
+          {{move.name}} <a class="glyphicon glyphicon-remove" ng-click="removeChosenMove(move)"></a>
         </li>
       </ul>
     </div>
@@ -21,7 +21,7 @@
       <ul class="silent-list">
         <li ng-repeat="move in availableMoves" class="row">
           <a class="col-xs-2 glyphicon glyphicon-plus" ng-click="addChosenMove(move)"></a>
-          <span class="col-xs-8 btn btn-default">{{move}}</span>
+          <span class="col-xs-8 btn btn-default">{{move.name}}</span>
           <a class="col-xs-2 glyphicon glyphicon-remove text-right" ng-click="removeMove(move)"></a>
         </li>
       </ul>
