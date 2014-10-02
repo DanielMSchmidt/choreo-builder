@@ -15,7 +15,7 @@
 
       <ul>
         <li ng-repeat="move in availableMoves">
-          {{move}}
+          {{move}} <a class="glyphicon glyphicon-remove" ng-click="removeMove(move)"></a>
         </li>
       </ul>
     </div>
