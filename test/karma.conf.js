@@ -28,6 +28,9 @@ module.exports = function(config) {
       'bower_components/angular-touch/angular-touch.js',
       'bower_components/angular-dragdrop/src/angular-dragdrop.js',
       'bower_components/angular-local-storage/angular-local-storage.js',
+      'bower_components/angular-strap/dist/angular-strap.js',
+      'bower_components/angular-strap/dist/angular-strap.tpl.js',
+      'bower_components/bootstrap/dist/js/bootstrap.js',
       'app/scripts/**/*.js',
       'test/mock/**/*.js',
       'test/spec/**/*.js'

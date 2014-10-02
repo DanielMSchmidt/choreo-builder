@@ -17,6 +17,7 @@ angular.module('jsChoreoBuilderApp')
 
     // chosen moves should be persisted
     $scope.chosenMoves = (localStorageService.get('chosenMoves') || []);
+    // TODO: Trigger save on change of each element within this array
     localStorageService.bind($scope, 'chosenMoves', $scope.chosenMoves);
 
     $scope.currentIndex = $scope.chosenMoves.length + 1;

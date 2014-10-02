@@ -1,11 +1,12 @@
 <div ng-controller="MainCtrl">
   <h1>Baue deine Choreographie</h1>
-  <div class="row">
+  <div class="row aside-container">
     <div class="col-xs-8">
       <h2>Choreographie</h2>
-      <ul class="js-sortable">
-        <li ng-repeat="move in chosenMoves">
-          {{move.name}} <a class="glyphicon glyphicon-remove" ng-click="removeChosenMove(move)"></a>
+      <ul class="js-sortable silent-list">
+        <li ng-repeat="move in chosenMoves" class="row">
+          <span class="col-xs-10 btn btn-default" data-animation="am-fade-and-slide-top" data-template="views/partials/comments_modal.tpl.html" bs-modal="move">{{move.name}}</span>
+          <a class="col-xs-2 glyphicon glyphicon-remove text-right" ng-click="removeChosenMove(move)"></a>
         </li>
       </ul>
     </div>

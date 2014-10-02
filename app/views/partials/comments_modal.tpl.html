@@ -1,0 +1,16 @@
+<div class="modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" ng-click="$hide()"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title">Kommentare für {{move.name}} an Stelle {{move.index}}</h4>
+      </div>
+      <div class="modal-body">
+        <textarea ng-model="move.comment"></textarea>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" ng-click="$hide()">Schließen</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
