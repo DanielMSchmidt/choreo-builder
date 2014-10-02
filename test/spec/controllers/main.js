@@ -22,4 +22,11 @@ describe('Controller: MainCtrl', function () {
     scope.addMove('Test');
     expect(scope.availableMoves.length).toBe(oldLength + 1);
   });
+
+  it('should be able to remove a move', function() {
+    scope.availableMoves = ['MyTest'];
+    scope.removeMove('MyTest');
+
+    expect(scope.availableMoves.length).toBe(0);
+  });
 });
