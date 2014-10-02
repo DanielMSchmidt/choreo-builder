@@ -3,6 +3,11 @@
   <div class="row">
     <div class="col-xs-8">
       <h2>Choreographie</h2>
+      <ul class="js-sortable">
+        <li ng-repeat="move in chosenMoves">
+          {{move}} <a class="glyphicon glyphicon-remove" ng-click="removeChosenMove(move)"></a>
+        </li>
+      </ul>
     </div>
     <div class="col-xs-4">
       <h2>Figuren</h2>
@@ -15,7 +20,9 @@
 
       <ul>
         <li ng-repeat="move in availableMoves">
-          {{move}} <a class="glyphicon glyphicon-remove" ng-click="removeMove(move)"></a>
+          <a class="glyphicon glyphicon-plus" ng-click="addChosenMove(move)"></a>
+          <span class="btn btn-default">{{move}}</span>
+          <a class="glyphicon glyphicon-remove" ng-click="removeMove(move)"></a>
         </li>
       </ul>
     </div>
