@@ -10,15 +10,15 @@
  */
 angular
   .module('jsChoreoBuilderApp', [
+    'LocalStorageModule',
+    'mgcrea.ngStrap',
     'ngAnimate',
     'ngCookies',
+    'ngDragDrop',
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch',
-    'ngDragDrop',
-    'LocalStorageModule',
-    'mgcrea.ngStrap'
+    'ngTouch'
   ])
   .config(function ($routeProvider) {
     $routeProvider
