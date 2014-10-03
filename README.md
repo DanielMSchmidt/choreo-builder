@@ -20,3 +20,16 @@ Goals
 - moves should be extendable
 - there should be smart suggestions for next moves
 - there should be an error if moves aren't alignable
+
+
+Todo
+-----
+
+- distinguish between different dances
+- Save choreography, name it and start a new one
+  - save it beneath the dances, so they can easily be switched
+  - give WIP choreo a temporary name, so it can be autoselected at first
+- Add comments to moves
+  - add to move as such or to move in this choreography
+  - can have a start and end beat
+  - beats should be a dropdown with 1/8 timings
