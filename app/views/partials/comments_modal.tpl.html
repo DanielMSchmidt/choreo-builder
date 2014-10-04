@@ -3,11 +3,25 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" ng-click="$hide()"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-        <h4 class="modal-title">Kommentare für {{move.name}} an Stelle {{move.index}}</h4>
+        <h4 class="modal-title">Figur #{{move.index}}: Kommentare für {{move.name}}</h4>
       </div>
-      <div class="modal-body">
-        <textarea ng-model="move.comment"></textarea>
+      <div class="row">
+        <form role="form" class="col-xs-8">
+          <div class="form-group">
+            <label for="newComment">Neuer Kommentar</label>
+            <input id="newComment" class="form-control" type="text" ng-model="newComment" placeholder="Neuer Kommentar" >
+          </div>
+        </form>
+        <div class="col-xs-4">
+          <a class="btn btn-default" ng-click="addCommentToFigure(move, newComment)">Zu Figur hinzufügen</a>
+          <a class="btn btn-default" ng-click="addCommentToPart(move, newComment); newComment = ''">Zu Stelle hinzufügen</a>
+        </div>
       </div>
+      <ul>
+        <li ng-repeat="comment in move.comments">
+          {{comment}}
+        </li>
+      </ul>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" ng-click="$hide()">Schließen</button>
       </div>

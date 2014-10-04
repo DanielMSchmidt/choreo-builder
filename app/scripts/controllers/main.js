@@ -1,4 +1,5 @@
 'use strict';
+/* global $ */
 
 /**
  * @ngdoc function
@@ -17,13 +18,12 @@ angular.module('jsChoreoBuilderApp')
 
     // chosen moves should be persisted
     $scope.chosenMoves = (localStorageService.get('chosenMoves') || []);
-    // TODO: Trigger save on change of each element within this array
     localStorageService.bind($scope, 'chosenMoves', $scope.chosenMoves);
 
     $scope.currentIndex = $scope.chosenMoves.length + 1;
 
     $scope.addMove = function() {
-      $scope.availableMoves.push({name: $scope.newMove});
+      $scope.availableMoves.push({name: $scope.newMove, comments: []});
       $scope.newMove = '';
     };
 
@@ -42,9 +42,23 @@ angular.module('jsChoreoBuilderApp')
       $scope.chosenMoves.splice($scope.chosenMoves.indexOf(move), 1);
     };
 
+    $scope.addCommentToFigure = function(move, newComment) {
+      // TODO: find all moves with the same name
+      // TODO: add to figure list
+    };
+
+    $scope.addCommentToPart = function(move, newComment) {
+      var index = $scope.chosenMoves.indexOf(move);
+      move.comments.push(newComment);
+      $scope.chosenMoves[index] = move;
+      localStorageService.set('chosenMoves', $scope.chosenMoves);
+
+      $scope.newComment = '';
+    };
+
     $scope.dragStart = function(e, ui) {
       ui.item.data('start', ui.item.index());
-    }
+    };
 
     $scope.dragEnd = function(e, ui) {
       var start = ui.item.data('start'),
@@ -52,7 +66,7 @@ angular.module('jsChoreoBuilderApp')
 
       $scope.chosenMoves.splice(end, 0, $scope.chosenMoves.splice(start, 1)[0]);
       $scope.$apply();
-    }
+    };
 
     sortableEle = $('.js-sortable').sortable({
         start: $scope.dragStart,
