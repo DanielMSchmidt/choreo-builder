@@ -1,3 +1,4 @@
+'use strict';
 angular.module('jsChoreoBuilderApp').filter('forId', function () {
   var filter = function(arr, key) {
     var newArr = [];
@@ -9,6 +10,6 @@ angular.module('jsChoreoBuilderApp').filter('forId', function () {
     });
 
     return newArr;
-  }
+  };
   return filter;
 });
