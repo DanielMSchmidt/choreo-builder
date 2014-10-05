@@ -5,7 +5,7 @@
         <button type="button" class="close" ng-click="$hide()"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
         <h4 class="modal-title">Figur #{{move.index}}: Kommentare für {{move.name}}</h4>
       </div>
-      <div class="row">
+      <div class="row modal-body">
         <form role="form" class="col-xs-8">
           <div class="form-group">
             <label for="newComment">Neuer Kommentar</label>
@@ -13,15 +13,23 @@
           </div>
         </form>
         <div class="col-xs-4">
-          <a class="btn btn-default" ng-click="addCommentToFigure(move, newComment)">Zu Figur hinzufügen</a>
+          <a class="btn btn-default" ng-click="addCommentToFigure(move, newComment); newComment = ''">Zu Figur hinzufügen</a>
           <a class="btn btn-default" ng-click="addCommentToPart(move, newComment); newComment = ''">Zu Stelle hinzufügen</a>
         </div>
       </div>
-      <ul>
-        <li ng-repeat="comment in move.comments">
-          {{comment}}
+      <h3>Anmerkungen für diese Stelle</h3>
+      <ul class="row">
+        <li ng-repeat="note in notes | forId:move.$$hashKey">
+          {{note.content}}
         </li>
       </ul>
+      <h3>Anmerkungen für diese Figur</h3>
+      <ul class="row">
+        <li ng-repeat="note in notes | forId:move.moveHash">
+          {{note.content}}
+        </li>
+      </ul>
+
       <div class="modal-footer">
         <button type="button" class="btn btn-default" ng-click="$hide()">Schließen</button>
       </div>
