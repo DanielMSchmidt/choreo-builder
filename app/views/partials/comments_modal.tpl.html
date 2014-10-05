@@ -8,16 +8,18 @@
       <div class="row modal-body">
         <form role="form" class="col-xs-8">
           <div class="form-group">
-            <label for="newComment">Neuer Kommentar</label>
-            <input id="newComment" class="form-control" type="text" ng-model="newComment" placeholder="Neuer Kommentar" >
+            <label for="newComment">Neue Notiz</label>
+            <textarea id="newComment" class="form-control vertical-resize" type="text" ng-model="newComment" placeholder="Hier Notiz eintragen" ></textarea>
           </div>
         </form>
         <div class="col-xs-4">
-          <a class="btn btn-default" ng-click="addCommentToFigure(move, newComment); newComment = ''">Zu Figur hinzufügen</a>
-          <a class="btn btn-default" ng-click="addCommentToPart(move, newComment); newComment = ''">Zu Stelle hinzufügen</a>
+          <div class="btn-group-vertical">
+            <a class="btn btn-primary" ng-click="addCommentToPart(move, newComment); newComment = ''">Zu Stelle hinzufügen</a>
+            <a class="btn btn-danger" ng-click="addCommentToFigure(move, newComment); newComment = ''">Zu Figur hinzufügen</a>
+          </div>
         </div>
         <div class="col-xs-12">
-          <h3>Anmerkungen für diese Stelle</h3>
+          <h3>Notizen für Stelle</h3>
           <ul class="row">
             <li ng-repeat="note in notes | forId:move.$$hashKey">
               {{note.content}}
@@ -25,7 +27,7 @@
           </ul>
         </div>
         <div class="col-xs-12">
-          <h3>Anmerkungen für diese Figur</h3>
+          <h3>Notizen für Figur</h3>
           <ul class="row">
             <li ng-repeat="note in notes | forId:move.moveHash">
               {{note.content}}
